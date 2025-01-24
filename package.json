@@ -2,7 +2,7 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-  "main": "components/chat-interface/index.tsx",
+  "main": "dist/main",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
