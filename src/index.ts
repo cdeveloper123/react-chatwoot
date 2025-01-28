@@ -1,6 +1,10 @@
-import { store } from "../store"
-import type { Conversation, User, Message } from "../types/chat"
+import { withChat } from "./components/chat-interface"
+import { store } from "./store"
+import type { ChatProps, Conversation, User, Message } from "./types/chat"
 
-export { store }
-export type { Conversation, User, Message }
+export { withChat, store }
+export type { ChatProps, Conversation, User, Message }
+
+// For local development
+import("./example")
 

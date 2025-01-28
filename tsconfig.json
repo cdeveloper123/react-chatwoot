@@ -20,18 +20,18 @@
     "jsx": "preserve",
     "outDir": "./dist",
     "declaration": true,
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    },
     "noEmit": true,
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+      // "@/*": ["src/*"]
+      "@/*": ["./*"]
+    }
   },
   "include": [
     "src",

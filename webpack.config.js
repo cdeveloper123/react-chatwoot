@@ -1,39 +1,39 @@
 const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/index.tsx",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
-            },
-          },
-        ],
+        use: "babel-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
     ],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-    alias: {
-      "@": path.resolve(__dirname, "src"),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "public"),
     },
-  },
-  output: {
-    filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
-    library: "ReactChatInterface",
-    libraryTarget: "umd",
-    globalObject: "this",
-  },
-  externals: {
-    react: "react",
-    "react-dom": "react-dom",
+    compress: true,
+    port: 3000,
   },
 }
 

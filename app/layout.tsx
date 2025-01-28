@@ -1,9 +1,10 @@
+import React from 'react';
 import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'React Chatwoot',
+  description: 'Best user support web app',
 }
 
 export default function RootLayout({
